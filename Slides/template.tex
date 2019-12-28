@@ -1,0 +1,61 @@
+\documentclass{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\title{Title}
+\author[A. Falai]{Alessio Falai \newline \texttt{alessio.falai@studio.unibo.it}}
+\date[01/01/1970]{01 January 1970}
+\institute[UNIBO]{Alma Mater Studiorum - University of Bologna}
+\logo{\includegraphics[width=15mm]{img/unibo_logo.eps}}
+\usetheme{AnnArbor}
+\useoutertheme[right]{sidebar}
+\setbeamercovered{dynamic}
+
+\begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\begin{frame}
+	\frametitle{Table of contents}
+	\tableofcontents
+\end{frame}
+
+\section{Introduction}
+\begin{frame}
+	\frametitle{Che cosa sono i numeri primi?}
+	\begin{definition}
+		Un \alert{numero primo} un intero $>1$ che ha esattamente
+		due divisori positivi.
+	\end{definition}
+\end{frame}
+
+\section{L’infinit dei primi}
+\begin{frame}
+	\frametitle{I numeri primi sono infiniti}
+	\framesubtitle{Ne diamo una dimostrazione diretta}
+	\begin{theorem}
+		Non esiste un primo maggiore di tutti gli altri.
+	\end{theorem}
+	\pause
+	\begin{proof}
+		\begin{enumerate}[<+->]
+			\item Sia dato un elenco di primi.
+			\item Sia $q$ il loro prodotto.
+			\item Allora $q+1$  divisibile per un primo $p$
+			che non compare nellelenco. \qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\section{Problemi aperti}
+\begin{frame}
+	\frametitle{Che cosa c ancora da fare?}
+	\begin{block}{Problemi risolti}
+		Quanti sono i numeri primi?
+	\end{block}
+	\begin{block}{Problemi aperti}
+		Un numero pari $>2$ sempre la somma di due primi?
+	\end{block}
+\end{frame}
+\end{document}
