@@ -4,6 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{appendixnumberbeamer}
 \usepackage{minted}
+\setminted{linenos, numberblanklines=false, mathescape, texcomments, autogobble, breakanywhere, breakautoindent, breaklines, frame=lines, framesep=5\fboxsep}
+\setminted[python]{python3}
 
 \usefonttheme{professionalfonts}
 \usepackage{mathspec}
@@ -13,18 +15,20 @@ Numbers={OldStyle}]{Fira Sans Light}
 
 \def\mytitle{Title}
 \def\mysubtitle{Subtitle}
-\def\myfullname{Alessio Falai}
 \def\myshortfullname{A. Falai}
+\def\myfullname{Alessio Falai}
 \def\myemail{alessio.falai@studio.unibo.it}
+\def\myshortinstitute{UNIBO}
+\def\myinstitute{Alma Mater Studiorum - University of Bologna}
 
 \title{\mytitle}
 \subtitle{\mysubtitle}
 \author[\myshortfullname]{\myfullname \newline \texttt{\myemail}}
 \date{\today}
-\institute[UNIBO]{Alma Mater Studiorum - University of Bologna}
+\institute[\myshortinstitute]{\myinstitute}
 \titlegraphic{\hfill\includegraphics[height=1.5cm]{img/unibo_logo.eps}}
 
-\usetheme[progressbar=foot, numbering=fraction, background=light, titleformat=smallcaps, block=fill]{metropolis}
+\usetheme[progressbar=frametitle, numbering=none, background=light, titleformat=smallcaps, block=fill]{metropolis}
 \useoutertheme{metropolis}
 \useinnertheme{metropolis}
 \usefonttheme{metropolis}
@@ -32,17 +36,35 @@ Numbers={OldStyle}]{Fira Sans Light}
 \setbeamercovered{dynamic}
 
 \begin{document}
-\begin{frame}
+\begin{frame}[noframenumbering]
 	\maketitle
 \end{frame}
 
-\begin{frame}
+\begin{frame}[noframenumbering]
 	\frametitle{Table of contents}
 	\setbeamertemplate{section in toc}[sections numbered]
 	\tableofcontents[hideallsubsections]
 \end{frame}
 
-\setbeamertemplate{frame footer}{\mytitle ~ \myshortfullname ~ \today}
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor ~ (\myshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{block title}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,center]{block body}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
 \section{Math stuff}
 \begin{frame}
 	\frametitle{Fermat's last theorem}
@@ -61,10 +83,10 @@ Numbers={OldStyle}]{Fira Sans Light}
 
 \section{Code stuff}
 \begin{frame}[fragile]{Python code}
-\begin{minted}{python}
-	def hello_world():
-		print("Hello world")
-\end{minted}
+	\begin{minted}[label=Hello world]{python}
+		def hello_world():
+			print("Hello world")
+	\end{minted}
 \end{frame}
 
 \begin{frame}[standout]
@@ -75,8 +97,8 @@ Numbers={OldStyle}]{Fira Sans Light}
 \begin{frame}
 	\frametitle{References}
 	\nocite{*}
-	\bibliography{}
-	\bibliographystyle{plain}
+    \bibliography{bibliography}
+    \bibliographystyle{plain}
 \end{frame}
 
 \begin{frame}

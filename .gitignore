@@ -31,6 +31,7 @@
 *-blx.aux
 *-blx.bib
 *.run.xml
+__latexindent_temp.tex
 
 ## Build tool auxiliary files:
 *.fdb_latexmk
