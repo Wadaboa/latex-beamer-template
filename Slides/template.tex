@@ -1,14 +1,34 @@
 \documentclass{beamer}
-\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \usepackage[T1]{fontenc}
-\title{Title}
-\author[A. Falai]{Alessio Falai \newline \texttt{alessio.falai@studio.unibo.it}}
-\date[01/01/1970]{01 January 1970}
+\usepackage{appendixnumberbeamer}
+\usepackage{minted}
+
+\usefonttheme{professionalfonts}
+\usepackage{mathspec}
+\setsansfont[BoldFont={Fira Sans},
+Numbers={OldStyle}]{Fira Sans Light}
+\setmathsfont(Digits)[Numbers={Lining, Proportional}]{Fira Sans Light}
+
+\def\mytitle{Title}
+\def\mysubtitle{Subtitle}
+\def\myfullname{Alessio Falai}
+\def\myshortfullname{A. Falai}
+\def\myemail{alessio.falai@studio.unibo.it}
+
+\title{\mytitle}
+\subtitle{\mysubtitle}
+\author[\myshortfullname]{\myfullname \newline \texttt{\myemail}}
+\date{\today}
 \institute[UNIBO]{Alma Mater Studiorum - University of Bologna}
-\logo{\includegraphics[width=15mm]{img/unibo_logo.eps}}
-\usetheme{AnnArbor}
-\useoutertheme[right]{sidebar}
+\titlegraphic{\hfill\includegraphics[height=1.5cm]{img/unibo_logo.eps}}
+
+\usetheme[progressbar=foot, numbering=fraction, background=light, titleformat=smallcaps, block=fill]{metropolis}
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+\usefonttheme{metropolis}
+\usecolortheme{metropolis}
 \setbeamercovered{dynamic}
 
 \begin{document}
@@ -18,44 +38,50 @@
 
 \begin{frame}
 	\frametitle{Table of contents}
-	\tableofcontents
+	\setbeamertemplate{section in toc}[sections numbered]
+	\tableofcontents[hideallsubsections]
 \end{frame}
 
-\section{Introduction}
+\setbeamertemplate{frame footer}{\mytitle ~ \myshortfullname ~ \today}
+\section{Math stuff}
 \begin{frame}
-	\frametitle{Che cosa sono i numeri primi?}
-	\begin{definition}
-		Un \alert{numero primo} un intero $>1$ che ha esattamente
-		due divisori positivi.
-	\end{definition}
-\end{frame}
-
-\section{L’infinit dei primi}
-\begin{frame}
-	\frametitle{I numeri primi sono infiniti}
-	\framesubtitle{Ne diamo una dimostrazione diretta}
+	\frametitle{Fermat's last theorem}
 	\begin{theorem}
-		Non esiste un primo maggiore di tutti gli altri.
+		The equation
+		$$
+		x^n+y^n=z^n
+		$$
+		has no integer solutions for $n > 2$ where $x, y, z \neq 0$.
 	\end{theorem}
 	\pause
 	\begin{proof}
-		\begin{enumerate}[<+->]
-			\item Sia dato un elenco di primi.
-			\item Sia $q$ il loro prodotto.
-			\item Allora $q+1$  divisibile per un primo $p$
-			che non compare nellelenco. \qedhere
-		\end{enumerate}
+		The proof is trivial and left as an exercise for the reader.
 	\end{proof}
 \end{frame}
 
-\section{Problemi aperti}
+\section{Code stuff}
+\begin{frame}[fragile]{Python code}
+\begin{minted}{python}
+	def hello_world():
+		print("Hello world")
+\end{minted}
+\end{frame}
+
+\begin{frame}[standout]
+	Thank you for your attention
+\end{frame}
+
+\appendix
 \begin{frame}
-	\frametitle{Che cosa c ancora da fare?}
-	\begin{block}{Problemi risolti}
-		Quanti sono i numeri primi?
-	\end{block}
-	\begin{block}{Problemi aperti}
-		Un numero pari $>2$ sempre la somma di due primi?
-	\end{block}
+	\frametitle{References}
+	\nocite{*}
+	\bibliography{}
+	\bibliographystyle{plain}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Backup frame}
+	\usebeamercolor[fg]{normal text}
+	This is a backup frame, useful to include additional material for questions from the audience.
 \end{frame}
 \end{document}
