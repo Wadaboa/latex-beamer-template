@@ -79,6 +79,9 @@ Numbers={OldStyle}]{Fira Sans Light}
   \beamer@resumemode}%
 \makeatother
 
+% Change shape size for itemize
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[square]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,7 +119,7 @@ Numbers={OldStyle}]{Fira Sans Light}
 	\maketitle
 \end{frame}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
 	\frametitle{Table of contents}
 	\setbeamertemplate{section in toc}[ball]
 	\tableofcontents[hideallsubsections]
